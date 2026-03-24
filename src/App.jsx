@@ -4,34 +4,34 @@ import { XAxis, YAxis, Tooltip, ResponsiveContainer, LineChart, Line, CartesianG
 var R_GAS = 8.314462618;
 
 var COMPS = [
-  { id:"H2", f:"H\u2082", cn:"\u6c22\u6c14", en:"Hydrogen", Tc:33.19, Pc:1.313e6, w:-0.216, MW:2.016, cp:[3.249,4.224e-4,8.301e-8,-6.276e-11,0], cat:"perm" ,cas:"1333-74-0",Tb:20.28,Vc:0.0000642},
+  { id:"H2", f:"H\u2082", cn:"\u6c22\u6c14", en:"Hydrogen", Tc:33.19, Pc:1.313e6, w:-0.216, MW:2.016, cp:[3.249,4.224e-4,8.301e-8,-6.276e-11,0], cat:"perm" ,cas:"1333-74-0",Tb:20.28,Vc:0.0000642,lel:4,uel:75,ait:500},
   { id:"N2", f:"N\u2082", cn:"\u6c2e\u6c14", en:"Nitrogen", Tc:126.20, Pc:3.394e6, w:0.0377, MW:28.014, cp:[3.539,-2.610e-4,7.0e-8,-1.567e-11,0], cat:"perm" ,cas:"7727-37-9",Tb:77.35,Vc:0.0000892},
   { id:"O2", f:"O\u2082", cn:"\u6c27\u6c14", en:"Oxygen", Tc:154.58, Pc:5.043e6, w:0.0222, MW:31.998, cp:[3.630,-1.794e-3,6.581e-6,-6.014e-9,1.762e-12], cat:"perm" ,cas:"7782-44-7",Tb:90.19,Vc:0.0000734},
   { id:"Ar", f:"Ar", cn:"\u6c29\u6c14", en:"Argon", Tc:150.86, Pc:4.898e6, w:0.0, MW:39.948, cp:[2.5,0,0,0,0], cat:"perm" ,cas:"7440-37-1",Tb:87.3,Vc:0.0000746},
   { id:"He", f:"He", cn:"\u6c26\u6c14", en:"Helium", Tc:5.19, Pc:0.227e6, w:-0.39, MW:4.003, cp:[2.5,0,0,0,0], cat:"perm" ,cas:"7440-59-7",Tb:4.22,Vc:0.0000575},
   { id:"Ne", f:"Ne", cn:"\u6c16\u6c14", en:"Neon", Tc:44.49, Pc:2.679e6, w:-0.029, MW:20.18, cp:[2.5,0,0,0,0], cat:"perm" ,cas:"7440-01-9",Tb:27.07,Vc:0.0000417},
-  { id:"CO", f:"CO", cn:"\u4e00\u6c27\u5316\u78b3", en:"Carbon Monoxide", Tc:132.92, Pc:3.499e6, w:0.0482, MW:28.01, cp:[3.710,-1.619e-3,3.692e-6,-2.032e-9,2.395e-13], cat:"syn" ,cas:"630-08-0",Tb:81.66,Vc:0.0000931},
+  { id:"CO", f:"CO", cn:"\u4e00\u6c27\u5316\u78b3", en:"Carbon Monoxide", Tc:132.92, Pc:3.499e6, w:0.0482, MW:28.01, cp:[3.710,-1.619e-3,3.692e-6,-2.032e-9,2.395e-13], cat:"syn" ,cas:"630-08-0",Tb:81.66,Vc:0.0000931,lel:12.5,uel:74,ait:609},
   { id:"CO2", f:"CO\u2082", cn:"\u4e8c\u6c27\u5316\u78b3", en:"Carbon Dioxide", Tc:304.21, Pc:7.383e6, w:0.2236, MW:44.01, cp:[2.401,8.735e-3,-6.607e-6,2.002e-9,0], cat:"syn" ,cas:"124-38-9",Tb:194.65,Vc:0.000094},
   { id:"H2O", f:"H\u2082O", cn:"\u6c34", en:"Water", Tc:647.10, Pc:22.064e6, w:0.3449, MW:18.015, cp:[4.070,-1.108e-3,4.152e-6,-2.964e-9,8.07e-13], cat:"syn" ,cas:"7732-18-5",Tb:373.15,Vc:0.0000559},
-  { id:"H2S", f:"H\u2082S", cn:"\u786b\u5316\u6c22", en:"Hydrogen Sulfide", Tc:373.53, Pc:8.963e6, w:0.0942, MW:34.082, cp:[4.266,-3.468e-3,1.319e-5,-1.097e-8,3.221e-12], cat:"syn" ,cas:"7783-06-4",Tb:213.6,Vc:0.0000985},
-  { id:"CH4", f:"CH\u2084", cn:"\u7532\u70f7", en:"Methane", Tc:190.56, Pc:4.599e6, w:0.0115, MW:16.043, cp:[1.702,9.081e-3,-2.164e-6,0,0], cat:"hc" ,cas:"74-82-8",Tb:111.66,Vc:0.0000986},
-  { id:"C2H4", f:"C\u2082H\u2084", cn:"\u4e59\u70ef", en:"Ethylene", Tc:282.35, Pc:5.042e6, w:0.0862, MW:28.054, cp:[1.424,1.436e-2,-5.681e-6,0,0], cat:"hc" ,cas:"74-85-1",Tb:169.42,Vc:0.000131},
-  { id:"C2H6", f:"C\u2082H\u2086", cn:"\u4e59\u70f7", en:"Ethane", Tc:305.32, Pc:4.872e6, w:0.0995, MW:30.07, cp:[1.131,1.925e-2,-5.561e-6,0,0], cat:"hc" ,cas:"74-84-0",Tb:184.55,Vc:0.0001455},
-  { id:"C3H8", f:"C\u2083H\u2088", cn:"\u4e19\u70f7", en:"Propane", Tc:369.83, Pc:4.248e6, w:0.1523, MW:44.097, cp:[1.213,2.849e-2,-8.824e-6,0,0], cat:"hc" ,cas:"74-98-6",Tb:231.11,Vc:0.0002},
-  { id:"C3H6", f:"C\u2083H\u2086", cn:"\u4e19\u70ef", en:"Propylene", Tc:365.57, Pc:4.665e6, w:0.1424, MW:42.081, cp:[1.637,2.224e-2,-7.756e-6,0,0], cat:"hc" ,cas:"115-07-1",Tb:225.46,Vc:0.000185},
-  { id:"nC4", f:"n-C4H10", cn:"\u6b63\u4e01\u70f7", en:"n-Butane", Tc:425.12, Pc:3.796e6, w:0.2002, MW:58.123, cp:[1.935,3.669e-2,-1.138e-5,0,0], cat:"hc" ,cas:"106-97-8",Tb:272.65,Vc:0.000255},
-  { id:"iC4", f:"i-C4H10", cn:"\u5f02\u4e01\u70f7", en:"i-Butane", Tc:408.80, Pc:3.640e6, w:0.1835, MW:58.123, cp:[1.677,3.756e-2,-1.2e-5,0,0], cat:"hc" ,cas:"75-28-5",Tb:261.43,Vc:0.0002627},
+  { id:"H2S", f:"H\u2082S", cn:"\u786b\u5316\u6c22", en:"Hydrogen Sulfide", Tc:373.53, Pc:8.963e6, w:0.0942, MW:34.082, cp:[4.266,-3.468e-3,1.319e-5,-1.097e-8,3.221e-12], cat:"syn" ,cas:"7783-06-4",Tb:213.6,Vc:0.0000985,lel:4,uel:44,ait:260},
+  { id:"CH4", f:"CH\u2084", cn:"\u7532\u70f7", en:"Methane", Tc:190.56, Pc:4.599e6, w:0.0115, MW:16.043, cp:[1.702,9.081e-3,-2.164e-6,0,0], cat:"hc" ,cas:"74-82-8",Tb:111.66,Vc:0.0000986,lel:5,uel:15,ait:537},
+  { id:"C2H4", f:"C\u2082H\u2084", cn:"\u4e59\u70ef", en:"Ethylene", Tc:282.35, Pc:5.042e6, w:0.0862, MW:28.054, cp:[1.424,1.436e-2,-5.681e-6,0,0], cat:"hc" ,cas:"74-85-1",Tb:169.42,Vc:0.000131,lel:2.7,uel:36,ait:450},
+  { id:"C2H6", f:"C\u2082H\u2086", cn:"\u4e59\u70f7", en:"Ethane", Tc:305.32, Pc:4.872e6, w:0.0995, MW:30.07, cp:[1.131,1.925e-2,-5.561e-6,0,0], cat:"hc" ,cas:"74-84-0",Tb:184.55,Vc:0.0001455,lel:3,uel:12.4,ait:472},
+  { id:"C3H8", f:"C\u2083H\u2088", cn:"\u4e19\u70f7", en:"Propane", Tc:369.83, Pc:4.248e6, w:0.1523, MW:44.097, cp:[1.213,2.849e-2,-8.824e-6,0,0], cat:"hc" ,cas:"74-98-6",Tb:231.11,Vc:0.0002,lel:2.1,uel:9.5,ait:450},
+  { id:"C3H6", f:"C\u2083H\u2086", cn:"\u4e19\u70ef", en:"Propylene", Tc:365.57, Pc:4.665e6, w:0.1424, MW:42.081, cp:[1.637,2.224e-2,-7.756e-6,0,0], cat:"hc" ,cas:"115-07-1",Tb:225.46,Vc:0.000185,lel:2,uel:11.1,ait:455},
+  { id:"nC4", f:"n-C4H10", cn:"\u6b63\u4e01\u70f7", en:"n-Butane", Tc:425.12, Pc:3.796e6, w:0.2002, MW:58.123, cp:[1.935,3.669e-2,-1.138e-5,0,0], cat:"hc" ,cas:"106-97-8",Tb:272.65,Vc:0.000255,lel:1.8,uel:8.4,ait:405},
+  { id:"iC4", f:"i-C4H10", cn:"\u5f02\u4e01\u70f7", en:"i-Butane", Tc:408.80, Pc:3.640e6, w:0.1835, MW:58.123, cp:[1.677,3.756e-2,-1.2e-5,0,0], cat:"hc" ,cas:"75-28-5",Tb:261.43,Vc:0.0002627,lel:1.8,uel:8.4,ait:460},
   { id:"SO2", f:"SO\u2082", cn:"\u4e8c\u6c27\u5316\u786b", en:"Sulfur Dioxide", Tc:430.75, Pc:7.884e6, w:0.2451, MW:64.066, cp:[3.267,5.324e-3,-6.843e-7,-2.103e-9,0], cat:"acid" ,cas:"7446-09-5",Tb:263.13,Vc:0.000122},
-  { id:"NH3", f:"NH\u2083", cn:"\u6c28", en:"Ammonia", Tc:405.40, Pc:11.353e6, w:0.2526, MW:17.031, cp:[3.578,3.02e-3,-1.86e-7,-6.494e-10,0], cat:"acid" ,cas:"7664-41-7",Tb:239.82,Vc:0.0000725},
-  { id:"COS", f:"COS", cn:"\u7fb0\u57fa\u786b", en:"Carbonyl Sulfide", Tc:378.77, Pc:6.370e6, w:0.0978, MW:60.075, cp:[2.7,8.1e-3,-4.9e-6,1.2e-9,0], cat:"acid" ,cas:"463-58-1",Tb:222.87,Vc:0.000137},
-  { id:"MeOH", f:"CH\u2083OH", cn:"\u7532\u9187", en:"Methanol", Tc:512.64, Pc:8.097e6, w:0.5656, MW:32.042, cp:[2.211,1.222e-2,-3.450e-6,0,0], cat:"org" ,cas:"67-56-1",Tb:337.69,Vc:0.000118},
-  { id:"EtOH", f:"C\u2082H\u2085OH", cn:"\u4e59\u9187", en:"Ethanol", Tc:513.92, Pc:6.148e6, w:0.6436, MW:46.069, cp:[1.491,2.091e-2,-6.376e-6,0,0], cat:"org" ,cas:"64-17-5",Tb:351.44,Vc:0.000167},
-  { id:"Acetone", f:"(CH\u2083)\u2082CO", cn:"\u4e19\u916e", en:"Acetone", Tc:508.20, Pc:4.700e6, w:0.3065, MW:58.080, cp:[1.712,2.617e-2,-8.467e-6,0,0], cat:"org" ,cas:"67-64-1",Tb:329.2,Vc:0.000209},
-  { id:"HCHO", f:"CH\u2082O", cn:"\u7532\u919b", en:"Formaldehyde", Tc:408.00, Pc:6.590e6, w:0.2818, MW:30.026, cp:[1.962,1.160e-2,-3.640e-6,0,0], cat:"org" ,cas:"50-00-0",Tb:254.05,Vc:0.000115},
-  { id:"Benzene", f:"C\u2086H\u2086", cn:"\u82ef", en:"Benzene", Tc:562.05, Pc:4.895e6, w:0.2103, MW:78.114, cp:[-0.206,3.926e-2,-1.330e-5,0,0], cat:"org" ,cas:"71-43-2",Tb:353.24,Vc:0.000259},
-  { id:"Toluene", f:"C\u2087H\u2088", cn:"\u7532\u82ef", en:"Toluene", Tc:591.75, Pc:4.108e6, w:0.2640, MW:92.141, cp:[-0.292,4.766e-2,-1.578e-5,0,0], cat:"org" ,cas:"108-88-3",Tb:383.78,Vc:0.000316},
-  { id:"pXylene", f:"p-C\u2088H\u2081\u2080", cn:"\u5bf9\u4e8c\u7532\u82ef", en:"p-Xylene", Tc:616.20, Pc:3.511e6, w:0.3218, MW:106.167, cp:[-0.286,5.578e-2,-1.846e-5,0,0], cat:"org" ,cas:"106-42-3",Tb:411.51,Vc:0.000378},
-  { id:"CyC6", f:"C\u2086H\u2081\u2082", cn:"\u73af\u5df1\u70f7", en:"Cyclohexane", Tc:553.58, Pc:4.075e6, w:0.2094, MW:84.161, cp:[-3.876,6.360e-2,-2.314e-5,0,0], cat:"org" ,cas:"110-82-7",Tb:353.87,Vc:0.000308},
+  { id:"NH3", f:"NH\u2083", cn:"\u6c28", en:"Ammonia", Tc:405.40, Pc:11.353e6, w:0.2526, MW:17.031, cp:[3.578,3.02e-3,-1.86e-7,-6.494e-10,0], cat:"acid" ,cas:"7664-41-7",Tb:239.82,Vc:0.0000725,lel:15,uel:28,ait:651},
+  { id:"COS", f:"COS", cn:"\u7fb0\u57fa\u786b", en:"Carbonyl Sulfide", Tc:378.77, Pc:6.370e6, w:0.0978, MW:60.075, cp:[2.7,8.1e-3,-4.9e-6,1.2e-9,0], cat:"acid" ,cas:"463-58-1",Tb:222.87,Vc:0.000137,lel:12,uel:29,ait:250},
+  { id:"MeOH", f:"CH\u2083OH", cn:"\u7532\u9187", en:"Methanol", Tc:512.64, Pc:8.097e6, w:0.5656, MW:32.042, cp:[2.211,1.222e-2,-3.450e-6,0,0], cat:"org" ,cas:"67-56-1",Tb:337.69,Vc:0.000118,lel:6,uel:36,fp:11,ait:464},
+  { id:"EtOH", f:"C\u2082H\u2085OH", cn:"\u4e59\u9187", en:"Ethanol", Tc:513.92, Pc:6.148e6, w:0.6436, MW:46.069, cp:[1.491,2.091e-2,-6.376e-6,0,0], cat:"org" ,cas:"64-17-5",Tb:351.44,Vc:0.000167,lel:3.3,uel:19,fp:13,ait:363},
+  { id:"Acetone", f:"(CH\u2083)\u2082CO", cn:"\u4e19\u916e", en:"Acetone", Tc:508.20, Pc:4.700e6, w:0.3065, MW:58.080, cp:[1.712,2.617e-2,-8.467e-6,0,0], cat:"org" ,cas:"67-64-1",Tb:329.2,Vc:0.000209,lel:2.5,uel:12.8,fp:-20,ait:465},
+  { id:"HCHO", f:"CH\u2082O", cn:"\u7532\u919b", en:"Formaldehyde", Tc:408.00, Pc:6.590e6, w:0.2818, MW:30.026, cp:[1.962,1.160e-2,-3.640e-6,0,0], cat:"org" ,cas:"50-00-0",Tb:254.05,Vc:0.000115,lel:7,uel:73,ait:424},
+  { id:"Benzene", f:"C\u2086H\u2086", cn:"\u82ef", en:"Benzene", Tc:562.05, Pc:4.895e6, w:0.2103, MW:78.114, cp:[-0.206,3.926e-2,-1.330e-5,0,0], cat:"org" ,cas:"71-43-2",Tb:353.24,Vc:0.000259,lel:1.2,uel:7.8,fp:-11,ait:498},
+  { id:"Toluene", f:"C\u2087H\u2088", cn:"\u7532\u82ef", en:"Toluene", Tc:591.75, Pc:4.108e6, w:0.2640, MW:92.141, cp:[-0.292,4.766e-2,-1.578e-5,0,0], cat:"org" ,cas:"108-88-3",Tb:383.78,Vc:0.000316,lel:1.1,uel:7.1,fp:4,ait:480},
+  { id:"pXylene", f:"p-C\u2088H\u2081\u2080", cn:"\u5bf9\u4e8c\u7532\u82ef", en:"p-Xylene", Tc:616.20, Pc:3.511e6, w:0.3218, MW:106.167, cp:[-0.286,5.578e-2,-1.846e-5,0,0], cat:"org" ,cas:"106-42-3",Tb:411.51,Vc:0.000378,lel:1.1,uel:7,fp:27,ait:528},
+  { id:"CyC6", f:"C\u2086H\u2081\u2082", cn:"\u73af\u5df1\u70f7", en:"Cyclohexane", Tc:553.58, Pc:4.075e6, w:0.2094, MW:84.161, cp:[-3.876,6.360e-2,-2.314e-5,0,0], cat:"org" ,cas:"110-82-7",Tb:353.87,Vc:0.000308,lel:1.3,uel:8,fp:-20,ait:245},
   { id:"HCl", f:"HCl", cn:"\u6c2f\u5316\u6c22", en:"Hydrogen Chloride", Tc:324.65, Pc:8.310e6, w:0.1319, MW:36.461, cp:[3.512,2.298e-4,-3.560e-7,5.400e-10,0], cat:"acid" ,cas:"7647-01-0",Tb:188.15,Vc:0.000081},
   { id:"Cl2", f:"Cl\u2082", cn:"\u6c2f\u6c14", en:"Chlorine", Tc:417.15, Pc:7.711e6, w:0.0688, MW:70.906, cp:[3.266,3.820e-3,-2.230e-6,4.780e-10,0], cat:"acid" ,cas:"7782-50-5",Tb:239.11,Vc:0.000123},
   { id:"R22", f:"R22", cn:"R22\u4e8c\u6c1f\u4e00\u6c2f\u7532\u70f7", en:"R22 HCFC-22", Tc:369.30, Pc:4.990e6, w:0.2209, MW:86.468, cp:[2.009,1.810e-2,-7.530e-6,0,0], cat:"ref" ,cas:"75-45-6",Tb:232.32,Vc:0.000165},
@@ -419,7 +419,7 @@ function tpFlash(T, P, z, clist, maxIter) {
   if (sumKz <= 1) return { beta: 0, x: z.slice(), y: z.map(function(zi, i) { return K[i] * zi; }), K: K, ph: "liquid", iter: 0 };
   if (sumZK <= 1) return { beta: 1, x: z.map(function(zi, i) { return zi / K[i]; }), y: z.slice(), K: K, ph: "vapor", iter: 0 };
 
-  // Solve Rachford-Rice for beta using Brent's method
+  // Solve Rachford-Rice for beta using Brent method
   var beta = 0.5;
   for (var outer = 0; outer < maxIter; outer++) {
     // Find beta bounds
@@ -948,6 +948,17 @@ function mixMW(comps,fracs,isMass){var nc=comps.length;if(isMass){var nf=[],s=0;
 // ============================================================================
 
 // INSULATION HEAT LOSS - bare & insulated pipe/vessel
+
+var INSUL_MATS = [
+  {id:"rockwool",cn:"\u5ca9\u68c9",en:"Rock wool",k:0.040,tmax:600},
+  {id:"glassfiber",cn:"\u7eff\u7483\u68c9",en:"Glass fiber",k:0.035,tmax:350},
+  {id:"pufoam",cn:"\u805a\u6c28\u916f",en:"PU foam",k:0.025,tmax:120},
+  {id:"casil",cn:"\u7845\u9178\u9499",en:"Calcium silicate",k:0.055,tmax:1000},
+  {id:"perlite",cn:"\u73e0\u5149\u7802",en:"Perlite",k:0.050,tmax:800},
+  {id:"aerogel",cn:"\u6c14\u51dd\u80f6",en:"Aerogel",k:0.015,tmax:650},
+  {id:"vacuum",cn:"\u771f\u7a7a\u5939\u5957",en:"Vacuum jacket",k:0.001,tmax:200},
+  {id:"custom",cn:"\u81ea\u5b9a\u4e49",en:"Custom",k:0,tmax:9999},
+];
 function calcInsulation(D_mm, Tproc_C, Tamb_C, insThick_mm, insK, windV, emissivity) {
   var D = D_mm / 1000;
   var Tp = Tproc_C + 273.15;
@@ -1069,6 +1080,14 @@ function calcHXarea(Q_kW, U, LMTD_K) {
 // THERMOCOUPLE mV->T LOOKUP (ITS-90 simplified polynomial)
 // Type K: -200 to 1372C, Type J: -210 to 1200C, Type T: -200 to 400C
 var TC_TYPES = {
+  Pt100: {name:"Pt100 (RTD)",range:[-200,850],
+    toOhm:function(T){if(T>=0)return 100*(1+3.9083e-3*T-5.775e-7*T*T);return 100*(1+3.9083e-3*T-5.775e-7*T*T-4.183e-12*Math.pow(T-100,3)*T)},
+    toT:function(R){var a=3.9083e-3,b=-5.775e-7;return(-a+Math.sqrt(a*a-4*b*(1-R/100)))/(2*b)}
+  },
+  Pt1000: {name:"Pt1000 (RTD)",range:[-200,850],
+    toOhm:function(T){if(T>=0)return 1000*(1+3.9083e-3*T-5.775e-7*T*T);return 1000*(1+3.9083e-3*T-5.775e-7*T*T-4.183e-12*Math.pow(T-100,3)*T)},
+    toT:function(R){var a=3.9083e-3,b=-5.775e-7;return(-a+Math.sqrt(a*a-4*b*(1-R/1000)))/(2*b)}
+  },
   K: {name:"K (NiCr-NiAl)",range:[-200,1372],
     toMV:function(T){if(T<0)return 0.03945+T*(0.03969+T*(4.21e-5+T*2.17e-8));return-0.0176+T*(0.03974+T*(2.95e-5+T*(-3.33e-8+T*1.24e-11)))},
     toT:function(mV){if(mV<0)return mV*(25.08+mV*(0.072+mV*0.0022));return mV*(25.08+mV*(-0.608+mV*(0.0145+mV*(-0.000178))))}
@@ -1091,6 +1110,44 @@ function calcNPSH(Ps_kPa, Pv_kPa, hs_m, hf_m, rho) {
   return {NPSHa: NPSHa, Ps: Ps_kPa, Pv: Pv_kPa, hs: hs_m, hf: hf_m};
 }
 
+
+
+// MULTI-STAGE COMPRESSOR
+function calcMultiComp(P1,P2,T1,eta,gam,mw,flow,nst,Tcool){
+  var Rg=8.314;
+  if(nst<=1){
+    var T2s=T1*Math.pow(P2/P1,(gam-1)/gam);
+    var T2=T1+(T2s-T1)/eta;
+    var Ws=flow/3600*(gam/(gam-1))*(Rg/mw*1000)*T1*(Math.pow(P2/P1,(gam-1)/gam)-1)/eta;
+    return {T2s:T2s,T2:T2,W:Ws/1000,nst:1};
+  }
+  var rps=Math.pow(P2/P1,1/nst);
+  var stages=[],totalW=0,Tin=T1;
+  for(var si=0;si<nst;si++){
+    var Pin=P1*Math.pow(rps,si),Pout=Pin*rps;
+    var T2si=Tin*Math.pow(rps,(gam-1)/gam);
+    var T2i=Tin+(T2si-Tin)/eta;
+    var Wi=flow/3600*(gam/(gam-1))*(Rg/mw*1000)*Tin*(Math.pow(rps,(gam-1)/gam)-1)/eta;
+    stages.push({pin:Pin/1e6,pout:Pout/1e6,t2s:T2si-273.15,t2:T2i-273.15,w:Wi/1000});
+    totalW+=Wi;
+    Tin=si<nst-1?Tcool:T2i;
+  }
+  return {nst:nst,stages:stages,W:totalW/1000,rps:rps,T2:stages[nst-1].t2+273.15,T2s:stages[nst-1].t2s+273.15};
+}
+
+// HUMIDITY CALCULATOR
+function calcHumidity(Tdb,RH,Patm){
+  var a=17.625,b=243.04;
+  var Psat=0.61078*Math.exp(a*Tdb/(b+Tdb));
+  var Pw=Psat*RH/100;
+  var Tdew=b*Math.log(Pw/0.61078)/(a-Math.log(Pw/0.61078));
+  var W=0.62198*Pw/(Patm-Pw);
+  var Twet=Tdb*Math.atan(0.151977*Math.pow(RH+8.3137,0.5))+Math.atan(Tdb+RH)-Math.atan(RH-1.6763)+0.00391838*Math.pow(RH,1.5)*Math.atan(0.023101*RH)-4.686035;
+  return {Psat:Psat,Pw:Pw,Tdew:Tdew,W:W*1000,Twet:Twet,ppm:Pw/Patm*1e6};
+}
+
+// B36.10M PIPE SCHEDULE
+var B3610=[{nps:"1/2",dn:15,od:21.3,sch:{STD:2.77,XS:3.73,"160":4.78,XXS:7.47}},{nps:"3/4",dn:20,od:26.7,sch:{STD:2.87,XS:3.91,"160":5.56,XXS:7.82}},{nps:"1",dn:25,od:33.4,sch:{STD:3.38,XS:4.55,"160":6.35,XXS:9.09}},{nps:"1-1/2",dn:40,od:48.3,sch:{STD:3.68,XS:5.08,"160":7.14,XXS:10.15}},{nps:"2",dn:50,od:60.3,sch:{STD:3.91,XS:5.54,"160":8.74,XXS:11.07}},{nps:"3",dn:80,od:88.9,sch:{STD:5.49,XS:7.62,"160":11.13,XXS:15.24}},{nps:"4",dn:100,od:114.3,sch:{STD:6.02,XS:8.56,"160":13.49,XXS:17.12}},{nps:"6",dn:150,od:168.3,sch:{STD:7.11,XS:10.97,"160":18.26,XXS:21.95}},{nps:"8",dn:200,od:219.1,sch:{STD:8.18,XS:12.70,"160":23.01,XXS:22.23}},{nps:"10",dn:250,od:273.1,sch:{STD:9.27,XS:12.70,"160":28.58,XXS:25.40}},{nps:"12",dn:300,od:323.8,sch:{STD:9.53,XS:12.70,"160":33.32,XXS:25.40}},{nps:"14",dn:350,od:355.6,sch:{STD:9.53,XS:12.70,"160":35.71}},{nps:"16",dn:400,od:406.4,sch:{STD:9.53,XS:12.70,"160":40.49}},{nps:"20",dn:500,od:508.0,sch:{STD:9.53,XS:12.70,"160":50.01}},{nps:"24",dn:600,od:609.6,sch:{STD:9.53,XS:12.70,"160":59.54}}];
 
 // UI LAYER - Modern Clean Industrial Design
 // ============================================================================
@@ -1334,7 +1391,7 @@ function buildRows(res, lg) {
     addR(lg==="en"?"Phase":"\u76f8\u6001",(res.phCN||"")+" / "+(res.ph||""),"");
     if (res.vaporFrac!==undefined) addR(lg==="en"?"Vapor Fraction":"\u6c14\u76f8\u5206\u7387",res.vaporFrac,"");
     if (res.Tsat) addR(lg==="en"?"Sat. Temp":"\u9971\u548c\u6e29\u5ea6",res.Tsat-273.15,"\u00b0C");
-    if(res.comp&&res.comp.cas)addR("CAS",res.comp.cas,""); if(res.comp&&res.comp.Tb)addR(lg==="en"?"Boiling Pt":"\u6cb8\u70b9Tb",Math.round((res.comp.Tb-273.15)*100)/100,"\u00b0C"); addR("Z",res.Z,""); addR(lg==="en"?"Molar Vol":"\u6469\u5c14\u4f53\u79ef Vm",res.Vm*1000,"L/mol");
+    if(res.comp&&res.comp.cas)addR("CAS",res.comp.cas,""); if(res.comp&&res.comp.lel)addR("LEL/UEL",res.comp.lel+"/"+res.comp.uel,"vol%"); if(res.comp&&res.comp.fp!==undefined)addR(lg==="en"?"Flash Pt":"\u95ea\u70b9",res.comp.fp,"\u00b0C"); if(res.comp&&res.comp.ait)addR(lg==="en"?"Auto-ignition":"\u81ea\u71c3\u70b9",res.comp.ait,"\u00b0C"); if(res.comp&&res.comp.Tb)addR(lg==="en"?"Boiling Pt":"\u6cb8\u70b9Tb",Math.round((res.comp.Tb-273.15)*100)/100,"\u00b0C"); addR("Z",res.Z,""); addR(lg==="en"?"Molar Vol":"\u6469\u5c14\u4f53\u79ef Vm",res.Vm*1000,"L/mol");
     addR(lg==="en"?"Density":"\u5bc6\u5ea6",res.rho,res.liqDenSrc?"kg/m3 [DIPPR]":"kg/m3");
     addR(lg==="en"?"Enthalpy H":"\u7113 H",res.H/1000,"kJ/mol"); addR(lg==="en"?"Entropy S":"\u71b5 S",res.S,"J/(mol*K)"); addR("Cp",res.Cp,"J/(mol*K)"); addR("Cv",res.gamma>0?res.Cp/res.gamma:0,"J/(mol*K)"); addR("Cp/Cv",res.gamma,""); addR(lg==="en"?"Int. Energy u":"\u5185\u80fd u",res.H-res.Z*8.314*res.T,"J/mol");
     if (res.Psat) addR(lg==="en"?"Sat. Pressure":"\u9971\u548cP",res.Psat/1e6,"MPa(a)");
@@ -1435,7 +1492,7 @@ export default function App() {
   // Equipment inputs
   var sEqRes = useState(null), eqRes = sEqRes[0], setEqRes = sEqRes[1];
   var sEqIn = useState({p1:"0.1013",p2:"0.5",t1:"25",eta:"0.75",gamma:"1.4",mw:"28.97",flow:"100",
-    dia:"0.1",len:"100",rough:"0.000046",vel:"3",rho:"1000",mu:"0.001"}), eqIn = sEqIn[0];
+    dia:"0.1",len:"100",nst:"1",tcool:"35",rough:"0.000046",vel:"3",rho:"1000",mu:"0.001",qm:"",qv:""}), eqIn = sEqIn[0];
   var setEq = function(k,v){setEqRes(null);sEqIn[1](function(p){var o={};for(var x in p)o[x]=p[x];o[k]=v;return o})};
   // Unit converter
   var sUcCat = useState("temp"), ucCat = sUcCat[0], setUcCat = sUcCat[1];
@@ -1453,12 +1510,12 @@ export default function App() {
   var setSvI = function(k,v){setEqRes(null);sSvIn[1](function(p){var o={};for(var x in p)o[x]=p[x];o[k]=v;return o})};
   var sOpIn = useState({D:"100",d:"50",dP:"5000",rho:"1.2",mu:"0.000018",tap:"flange"}), opIn = sOpIn[0];
   var setOp = function(k,v){setEqRes(null);sOpIn[1](function(p){var o={};for(var x in p)o[x]=p[x];o[k]=v;return o})};
-  var sGfIn = useState({qa:"1000",t:"25",p:"0.5"}), gfIn = sGfIn[0];
+  var sGfIn = useState({qa:"1000",t:"25",p:"0.5",iu:"am3h"}), gfIn = sGfIn[0];
   var sCvType = useState("liq"), cvType = sCvType[0], setCvType = sCvType[1];
   var sCvIn = useState({q:"50",g:"1.0",p1:"500",p2:"200",w:"5000",t1:"200",mw:"28.97",gamma:"1.4",z:"1"}), cvIn = sCvIn[0];
   var setCvI = function(k,v){setEqRes(null);sCvIn[1](function(p){var o={};for(var x in p)o[x]=p[x];o[k]=v;return o})};
   var sVesIn = useState({d:"2",len:"5",h:"1",head:"ellip",orient:"horiz"}), vesIn = sVesIn[0];
-  var sInsIn = useState({d:"100",tp:"200",ta:"25",thick:"50",k:"0.04",wind:"3",emis:"0.9"}), insIn = sInsIn[0];
+  var sInsIn = useState({d:"100",tp:"200",ta:"25",thick:"50",k:"0.04",wind:"3",emis:"0.9",mat:"rockwool"}), insIn = sInsIn[0];
   var setInsI = function(k,v){setEqRes(null);sInsIn[1](function(p){var o={};for(var x in p)o[x]=p[x];o[k]=v;return o})};
   var sPhaseSel = useState("H2O"), phaseSel = sPhaseSel[0], setPhaseSel = sPhaseSel[1];
   var sMaIn = useState({pv:"50",lo:"0",hi:"100",ma:"12",dir:"pv2ma"}), maIn = sMaIn[0];
@@ -1470,13 +1527,15 @@ export default function App() {
   var setHxI = function(k,v){sHxIn[1](function(p){var o={};for(var x in p)o[x]=p[x];o[k]=v;return o})};
   var sNpshIn = useState({ps:"101.325",pv:"2.339",hs:"3",hf:"0.5",rho:"1000"}), npshIn = sNpshIn[0];
   var setNpshI = function(k,v){sNpshIn[1](function(p){var o={};for(var x in p)o[x]=p[x];o[k]=v;return o})};
+  var sHumIn = useState({t:"25",rh:"50",patm:"101.325"}), humIn = sHumIn[0];
+  var setHumI = function(k,v){sHumIn[1](function(p){var o={};for(var x in p)o[x]=p[x];o[k]=v;return o})};
   var setVesI = function(k,v){setEqRes(null);sVesIn[1](function(p){var o={};for(var x in p)o[x]=p[x];o[k]=v;return o})};
   var setGf = function(k,v){sGfIn[1](function(p){var o={};for(var x in p)o[x]=p[x];o[k]=v;return o})};
   var sRes = useState(null), res = sRes[0], setRes = sRes[1];
   var sErr = useState(null), err = sErr[0], setErr = sErr[1];
   var sSat = useState(null), satC = sSat[0], setSatC = sSat[1];
 
-  var addComp = useCallback(function(c){setComps(function(p){return p.find(function(x){return x.id===c.id})?p:p.concat([{id:c.id,f:c.f,cn:c.cn,en:c.en,Tc:c.Tc,Pc:c.Pc,w:c.w,MW:c.MW,cp:c.cp,mf:""}])});},[]);
+  var addComp = useCallback(function(c){setComps(function(p){if(p.find(function(x){return x.id===c.id}))return p;var nc={};for(var k in c)nc[k]=c[k];nc.mf="";return p.concat([nc])});},[]);
 
   // Persistence: save inputs to storage
   useEffect(function(){
@@ -1581,7 +1640,7 @@ export default function App() {
   },[mode,comps,meth,tv,tu,pv,pu,vf,inMode,vleType]);
 
   var rows = useMemo(function(){return buildRows(res,lang)},[res,lang]);
-  var modes=[{id:"pure",g:"props",cn:"\u7eaf\u7ec4\u5206",en:"Pure"},{id:"steam",g:"props",cn:"\u84b8\u6c14",en:"Steam"},{id:"vle",g:"props",cn:"VLE",en:"VLE"},{id:"diag",g:"props",cn:"\u76f8\u56fe",en:"Diagram"},{id:"comp",g:"equip",cn:"\u538b\u7f29\u673a",en:"Compressor"},{id:"expd",g:"equip",cn:"\u81a8\u80c0\u673a",en:"Expander"},{id:"pump",g:"equip",cn:"\u6cf5",en:"Pump"},{id:"pipe",g:"equip",cn:"\u7ba1\u8def",en:"Pipe"},{id:"cop",g:"equip",cn:"\u5236\u51b7\u5faa\u73af",en:"Refrig. COP"},{id:"lmtd",g:"equip",cn:"LMTD",en:"LMTD"},{id:"unit",g:"tools",cn:"\u5355\u4f4d\u6362\u7b97",en:"Unit Conv."},{id:"pwall",g:"tools",cn:"\u7ba1\u9053\u58c1\u539a",en:"Pipe Wall"},{id:"svsize",g:"inst",cn:"\u5b89\u5168\u9600",en:"Safety Valve"},{id:"oplate",g:"inst",cn:"\u5b54\u677f",en:"Orifice"},{id:"gasflow",g:"tools",cn:"\u6807\u51c6\u6d41\u91cf",en:"Std Gas Flow"},{id:"mwcalc",g:"tools",cn:"\u5206\u5b50\u91cf",en:"MW Calc"},{id:"cvsize",g:"inst",cn:"\u9600\u95e8Cv",en:"Valve Cv"},{id:"heatval",g:"tools",cn:"\u70ed\u503c",en:"Heat Value"},{id:"vessel",g:"tools",cn:"\u5bb9\u5668\u6db2\u4f4d",en:"Vessel Vol."},{id:"hxarea",g:"equip",cn:"\u6362\u70ed\u5668",en:"HX Area"},{id:"npsh",g:"equip",cn:"NPSH",en:"NPSH"},{id:"ma420",g:"inst",cn:"4-20mA",en:"4-20mA"},{id:"tcconv",g:"inst",cn:"\u70ed\u7535\u5076",en:"T/C"},{id:"pipevel",g:"tools",cn:"\u6d41\u901f\u8868",en:"Velocity"},{id:"insul",g:"equip",cn:"\u4fdd\u6e29\u6563\u70ed",en:"Insulation"},{id:"phasediag",g:"props",cn:"\u76f8\u56fe(PT)",en:"Phase(PT)"}];
+  var modes=[{id:"pure",g:"props",cn:"\u7eaf\u7ec4\u5206",en:"Pure"},{id:"steam",g:"props",cn:"\u84b8\u6c14",en:"Steam"},{id:"vle",g:"props",cn:"VLE",en:"VLE"},{id:"diag",g:"props",cn:"\u76f8\u56fe",en:"Diagram"},{id:"comp",g:"equip",cn:"\u538b\u7f29\u673a",en:"Compressor"},{id:"expd",g:"equip",cn:"\u81a8\u80c0\u673a",en:"Expander"},{id:"pump",g:"equip",cn:"\u6cf5",en:"Pump"},{id:"pipe",g:"equip",cn:"\u7ba1\u8def",en:"Pipe"},{id:"cop",g:"equip",cn:"\u5236\u51b7\u5faa\u73af",en:"Refrig. COP"},{id:"lmtd",g:"equip",cn:"LMTD",en:"LMTD"},{id:"unit",g:"tools",cn:"\u5355\u4f4d\u6362\u7b97",en:"Unit Conv."},{id:"pwall",g:"tools",cn:"\u7ba1\u9053\u58c1\u539a",en:"Pipe Wall"},{id:"svsize",g:"equip",cn:"\u5b89\u5168\u9600",en:"Safety Valve"},{id:"oplate",g:"inst",cn:"\u5b54\u677f",en:"Orifice"},{id:"gasflow",g:"tools",cn:"\u6807\u51c6\u6d41\u91cf",en:"Std Gas Flow"},{id:"mwcalc",g:"tools",cn:"\u5206\u5b50\u91cf",en:"MW Calc"},{id:"cvsize",g:"inst",cn:"\u9600\u95e8Cv",en:"Valve Cv"},{id:"heatval",g:"tools",cn:"\u70ed\u503c",en:"Heat Value"},{id:"vessel",g:"tools",cn:"\u5bb9\u5668\u6db2\u4f4d",en:"Vessel Vol."},{id:"hxarea",g:"equip",cn:"\u6362\u70ed\u5668",en:"HX Area"},{id:"npsh",g:"equip",cn:"NPSH",en:"NPSH"},{id:"ma420",g:"inst",cn:"4-20mA",en:"4-20mA"},{id:"tcconv",g:"inst",cn:"\u70ed\u7535\u5076",en:"T/C"},{id:"humid",g:"tools",cn:"\u6e7f\u5ea6\u9732\u70b9",en:"Humidity"},{id:"b3610",g:"tools",cn:"\u7ba1\u89c4B36",en:"Pipe Sch."},{id:"pipevel",g:"tools",cn:"\u6d41\u901f\u8868",en:"Velocity"},{id:"insul",g:"equip",cn:"\u4fdd\u6e29\u6563\u70ed",en:"Insulation"},{id:"phasediag",g:"props",cn:"\u76f8\u56fe(PT)",en:"Phase(PT)"}];
   var groups=[{id:"props",cn:"\u7269\u6027\u8ba1\u7b97",en:"Properties",bi:"Properties \u7269\u6027"},{id:"equip",cn:"\u8bbe\u5907\u8ba1\u7b97",en:"Equipment",bi:"Equipment \u8bbe\u5907"},{id:"inst",cn:"\u4eea\u8868\u81ea\u63a7",en:"Instrument"},{id:"tools",cn:"\u5de5\u5177",en:"Tools",bi:"Tools \u5de5\u5177"}];
   var meths=[{id:"PR",nm:"Peng-Robinson",ds:tx("prDesc",lang)},{id:"SRK",nm:"SRK",ds:tx("srkDesc",lang)},{id:"IAPWS-IF97",nm:"IAPWS-IF97",ds:tx("ifDesc",lang)},{id:"Ideal",nm:"Ideal Gas",ds:tx("idDesc",lang)}];
   var recM=mode==="steam"?"IAPWS-IF97":(comps.length===1&&comps[0]&&comps[0].id==="H2O")?"IAPWS-IF97":"PR";
@@ -1792,7 +1851,7 @@ export default function App() {
                     <XAxis dataKey="x1" type="number" domain={[0,1]} stroke={C.borderH} tick={{fill:C.textL,fontSize:10}}
                       label={{value:"x\u2081, y\u2081 ("+diagData.c1.f+")",position:"insideBottomRight",offset:0,fill:C.textM,fontSize:10}} />
                     <YAxis stroke={C.borderH} tick={{fill:C.textL,fontSize:10}} width={50}
-                      label={{value:"P (MPa)",angle:-90,position:"insideLeft",offset:5,fill:C.textM,fontSize:10}} />
+                      label={{value:"P MPa(a)",angle:-90,position:"insideLeft",offset:5,fill:C.textM,fontSize:10}} />
                     <Tooltip contentStyle={{backgroundColor:C.white,border:"1px solid "+C.border,borderRadius:8,boxShadow:C.shadowM,fontSize:12}} formatter={function(v){return typeof v==="number"?v.toFixed(4)+" MPa":v}} />
                     <Line data={diagData.bub} type="monotone" dataKey="Pbub" stroke={C.pri} strokeWidth={2.5} dot={false} />
                     <Line data={diagData.dew.map(function(d){return{x1:d.y1,Pdew:d.Pdew}})} type="monotone" dataKey="Pdew" stroke={C.acc} strokeWidth={2.5} dot={false} />
@@ -1828,6 +1887,8 @@ export default function App() {
                   <div style={{display:"flex",gap:6,alignItems:"center"}}><span style={lS}>P1 (MPa)</span><input type="number" value={eqIn.p1} onChange={function(e){setEq("p1",e.target.value)}} style={iS} /></div>
                   <div style={{display:"flex",gap:6,alignItems:"center"}}><span style={lS}>P2 (MPa)</span><input type="number" value={eqIn.p2} onChange={function(e){setEq("p2",e.target.value)}} style={iS} /></div>
                   <div style={{display:"flex",gap:6,alignItems:"center"}}><span style={lS}>{lang==="en"?"T1 (\u00b0C)":"T1 (\u00b0C)"}</span><input type="number" value={eqIn.t1} onChange={function(e){setEq("t1",e.target.value)}} style={iS} /></div>
+                  <div style={{display:"flex",gap:6,alignItems:"center"}}><span style={lS}>{lang==="en"?"Stages":"\u7ea7\u6570"}</span><select value={eqIn.nst} onChange={function(e){setEq("nst",e.target.value)}} style={iS}><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select></div>
+                  {parseInt(eqIn.nst)>1?<div style={{display:"flex",gap:6,alignItems:"center"}}><span style={lS}>{lang==="en"?"Intercool(\u00b0C)":"\u4e2d\u51b7T(\u00b0C)"}</span><input type="number" value={eqIn.tcool} onChange={function(e){setEq("tcool",e.target.value)}} style={iS} /></div>:null}
                   <div style={{display:"flex",gap:6,alignItems:"center"}}><span style={lS}>{lang==="en"?"Eff. \u03b7s":"\u7b49\u71b5\u6548\u7387 \u03b7s"}</span><input type="number" step="0.01" value={eqIn.eta} onChange={function(e){setEq("eta",e.target.value)}} style={iS} /></div>
                   <div style={{display:"flex",gap:6,alignItems:"center"}}><span style={lS}>Cp/Cv (\u03b3)</span><input type="number" step="0.01" value={eqIn.gamma} onChange={function(e){setEq("gamma",e.target.value)}} style={iS} /></div>
                   <div style={{display:"flex",gap:6,alignItems:"center"}}><span style={lS}>MW (g/mol)</span><input type="number" value={eqIn.mw} onChange={function(e){setEq("mw",e.target.value)}} style={iS} /></div>
@@ -1942,6 +2003,7 @@ export default function App() {
                   <div style={{display:"flex",gap:6,alignItems:"center"}}><span style={lS}>{lang==="en"?"Length (m)":"\u7ba1\u957f L (m)"}</span><input type="number" value={eqIn.len} onChange={function(e){setEq("len",e.target.value)}} style={iS} /></div>
                   <div style={{display:"flex",gap:6,alignItems:"center"}}><span style={lS}>{lang==="en"?"Diameter (m)":"\u5185\u5f84 D (m)"}</span><input type="number" value={eqIn.dia} onChange={function(e){setEq("dia",e.target.value)}} style={iS} /></div>
                   <div style={{display:"flex",gap:6,alignItems:"center"}}><span style={lS}>{lang==="en"?"Roughness (m)":"\u7c97\u7cd9\u5ea6 \u03b5 (m)"}</span><input type="number" value={eqIn.rough} onChange={function(e){setEq("rough",e.target.value)}} style={iS} /></div>
+                  <div style={{display:"flex",gap:6,alignItems:"center"}}><span style={lS}>{lang==="en"?"Vol.flow(m3/h)":"\u4f53\u79ef\u6d41\u91cf(m3/h)"}</span><input type="number" placeholder="opt" value={eqIn.qv||""} onChange={function(e){setEq("qv",e.target.value);var qv=parseFloat(e.target.value);var d=parseFloat(eqIn.dia);if(qv>0&&d>0){setEq("vel",(qv/3600/(Math.PI*d*d/4)).toFixed(3))}}} style={Object.assign({},iS,{backgroundColor:"#f0f9ff"})} /></div>
                   <div style={{display:"flex",gap:6,alignItems:"center"}}><span style={lS}>{lang==="en"?"Velocity (m/s)":"\u6d41\u901f (m/s)"}</span><input type="number" value={eqIn.vel} onChange={function(e){setEq("vel",e.target.value)}} style={iS} /></div>
                   <div style={{display:"flex",gap:6,alignItems:"center"}}><span style={lS}>{lang==="en"?"Density (kg/m\u00b3)":"\u5bc6\u5ea6 (kg/m\u00b3)"}</span><input type="number" value={eqIn.rho} onChange={function(e){setEq("rho",e.target.value)}} style={iS} /></div>
                   <div style={{display:"flex",gap:6,alignItems:"center"}}><span style={lS}>{lang==="en"?"Viscosity (Pa\u00b7s)":"\u7c98\u5ea6 \u03bc (Pa\u00b7s)"}</span><input type="number" value={eqIn.mu} onChange={function(e){setEq("mu",e.target.value)}} style={iS} /></div>
@@ -2143,7 +2205,7 @@ export default function App() {
                   <div style={{display:"flex",gap:6,alignItems:"center"}}><span style={lS}>Pb(kPa)</span><input type="number" value={svIn.pb} onChange={function(e){setSvI("pb",e.target.value)}} style={iS} /></div>
                   <div style={{display:"flex",gap:6,alignItems:"center"}}><span style={lS}>Kd</span><input type="number" value={svIn.kd} onChange={function(e){setSvI("kd",e.target.value)}} style={iS} /></div>
                 </div>
-                <button onClick={doSV} style={{width:"100%",marginTop:14,padding:"12px",background:"linear-gradient(135deg,#7c3aed,#8b5cf6)",border:"none",borderRadius:C.radius,color:"#fff",fontSize:15,fontWeight:700,cursor:"pointer"}}>{lang==="en"?"Calculate":"\u8ba1\u7b97"}</button>
+                <button onClick={doSV} style={{width:"100%",marginTop:14,padding:"12px",background:"linear-gradient(135deg,#b45309,#d97706)",border:"none",borderRadius:C.radius,color:"#fff",fontSize:15,fontWeight:700,cursor:"pointer"}}>{lang==="en"?"Calculate":"\u8ba1\u7b97"}</button>
                 {err?<div style={{marginTop:8,color:C.err,fontSize:12}}>{"! "+err}</div>:null}
                 {eqRes&&eqRes.A?(<div style={{marginTop:12}}><ResTable rows={[{n:lang==="en"?"Required A":"\u6240\u9700\u9762\u79efA",v:eqRes.A,u:"mm2"},{n:lang==="en"?"Orifice":"\u63a8\u8350\u53e3\u5f84",v:eqRes.rec?eqRes.rec[0]+" ("+eqRes.rec[1]+"mm2)":"Over",u:"API 526"}].concat(eqRes.svt==="gas"?[{n:lang==="en"?"Critical":"临界",v:eqRes.cr?"Yes":"No",u:""},{n:"C",v:eqRes.C,u:""},{n:"Kb",v:eqRes.Kb,u:""}]:[])} lang={lang} title="API 520" /></div>):null}
               </div>);
@@ -2287,7 +2349,7 @@ export default function App() {
                 <div style={{display:"flex",flexDirection:"column",gap:8}}>
                   <div style={{display:"flex",gap:6,alignItems:"center"}}><span style={lS}>D(m)</span><input type="number" value={vesIn.d} onChange={function(e){setVesI("d",e.target.value)}} style={iS} /></div>
                   <div style={{display:"flex",gap:6,alignItems:"center"}}><span style={lS}>L(m)</span><input type="number" value={vesIn.len} onChange={function(e){setVesI("len",e.target.value)}} style={iS} /></div>
-                  <div style={{display:"flex",gap:6,alignItems:"center"}}><span style={lS}>{lang==="en"?"Level h(m)":"\u6db2\u4f4dh(m)"}</span><input type="number" step="0.1" value={vesIn.h} onChange={function(e){setVesI("h",e.target.value)}} style={iS} /></div>
+                  <div style={{display:"flex",gap:6,alignItems:"center"}}><span style={lS}>{lang==="en"?"h(m) from head btm":"\u6db2\u4f4dh(m) \u4ece\u5c01\u5934\u5e95"}</span><input type="number" step="0.1" value={vesIn.h} onChange={function(e){setVesI("h",e.target.value)}} style={iS} /></div>
                   <div style={{display:"flex",gap:6,alignItems:"center"}}><span style={lS}>{lang==="en"?"Head":"\u5c01\u5934"}</span><select value={vesIn.head} onChange={function(e){setVesI("head",e.target.value)}} style={iS}><option value="ellip">2:1 Ellipsoidal</option><option value="flat">Flat</option></select></div>
                 </div>
                 {vr&&!vr.err?(<div style={{marginTop:12}}><ResTable rows={[{n:lang==="en"?"Liquid Vol":"\u6db2\u4f53\u4f53\u79ef",v:vr.Vtotal,u:"m3"},{n:lang==="en"?"Liquid Vol":"\u6db2\u4f53\u4f53\u79ef",v:vr.Vtotal_L,u:"L"},{n:lang==="en"?"Total Vol":"\u603b\u5bb9\u79ef",v:vr.VtotalFull,u:"m3"},{n:lang==="en"?"Fill":"\u5145\u6ee1\u7387",v:vr.pct,u:"%"},{n:lang==="en"?"Cylinder":"\u5706\u7b52",v:vr.Vcyl,u:"m3"},{n:lang==="en"?"Heads":"\u5c01\u5934",v:vr.Vhead,u:"m3"}]} lang={lang} title={lang==="en"?"Vessel":"\u5bb9\u5668"} /></div>):null}
@@ -2305,7 +2367,8 @@ export default function App() {
                   <div style={{display:"flex",gap:6,alignItems:"center"}}><span style={lS}>{lang==="en"?"Pipe OD(mm)":"\u7ba1\u5916\u5f84(mm)"}</span><input type="number" value={insIn.d} onChange={function(e){setInsI("d",e.target.value)}} style={iS} /></div>
                   <div style={{display:"flex",gap:6,alignItems:"center"}}><span style={lS}>{lang==="en"?"Process T(C)":"\u5de5\u8d28\u6e29\u5ea6(C)"}</span><input type="number" value={insIn.tp} onChange={function(e){setInsI("tp",e.target.value)}} style={iS} /></div>
                   <div style={{display:"flex",gap:6,alignItems:"center"}}><span style={lS}>{lang==="en"?"Ambient T(C)":"\u73af\u5883\u6e29\u5ea6(C)"}</span><input type="number" value={insIn.ta} onChange={function(e){setInsI("ta",e.target.value)}} style={iS} /></div>
-                  <div style={{display:"flex",gap:6,alignItems:"center"}}><span style={lS}>{lang==="en"?"Insul. thick(mm)":"\u4fdd\u6e29\u539a\u5ea6(mm)"}</span><input type="number" value={insIn.thick} onChange={function(e){setInsI("thick",e.target.value)}} style={iS} /></div>
+                  <div style={{display:"flex",gap:6,alignItems:"center"}}><span style={lS}>{lang==="en"?"Thick(mm, 0=bare)":"\u539a\u5ea6(mm, 0=\u88f8\u7ba1)"}</span><input type="number" value={insIn.thick} onChange={function(e){setInsI("thick",e.target.value)}} style={iS} /></div>
+                  <div style={{display:"flex",gap:6,alignItems:"center"}}><span style={lS}>{lang==="en"?"Material":"\u6750\u6599"}</span><select value={insIn.mat} onChange={function(e){var m=INSUL_MATS.find(function(x){return x.id===e.target.value});setInsI("mat",e.target.value);if(m&&m.k>0)setInsI("k",String(m.k))}} style={iS}>{INSUL_MATS.map(function(m){return <option key={m.id} value={m.id}>{lang==="en"?m.en:m.cn}{" (k="+m.k+")"}</option>})}</select></div>
                   <div style={{display:"flex",gap:6,alignItems:"center"}}><span style={lS}>{lang==="en"?"Conductivity k":"\u5bfc\u70ed\u7cfbk(W/mK)"}</span><input type="number" step="0.01" value={insIn.k} onChange={function(e){setInsI("k",e.target.value)}} style={iS} /></div>
                   <div style={{display:"flex",gap:6,alignItems:"center"}}><span style={lS}>{lang==="en"?"Wind(m/s)":"\u98ce\u901f(m/s)"}</span><input type="number" value={insIn.wind} onChange={function(e){setInsI("wind",e.target.value)}} style={iS} /></div>
                 </div>
@@ -2346,7 +2409,7 @@ export default function App() {
                   <LineChart data={allPts} margin={{top:10,right:20,bottom:25,left:15}}>
                     <CartesianGrid strokeDasharray="3 3" stroke={C.border} />
                     <XAxis dataKey="T" type="number" domain={["auto","auto"]} tick={{fontSize:10}} label={{value:"T (\u00b0C)",position:"bottom",fontSize:11,offset:0}} />
-                    <YAxis type="number" scale="log" domain={["auto","auto"]} tick={{fontSize:9}} label={{value:"P (MPa)",angle:-90,position:"insideLeft",fontSize:11,offset:5}} allowDataOverflow={true} />
+                    <YAxis type="number" scale="log" domain={["auto","auto"]} tick={{fontSize:9}} label={{value:"P MPa(a)",angle:-90,position:"insideLeft",fontSize:11,offset:5}} allowDataOverflow={true} />
                     <Tooltip contentStyle={{fontSize:10}} formatter={function(v){return typeof v==="number"?v.toFixed(4)+" MPa":v}} />
                     <Line dataKey="vap" stroke="#dc2626" dot={false} strokeWidth={2.5} connectNulls={false} name={lang==="en"?"Vaporization":"\u6c7d\u5316\u7ebf"} />
                     <Line dataKey="subl" stroke="#2563eb" dot={false} strokeWidth={2.5} connectNulls={false} name={lang==="en"?"Sublimation":"\u5347\u534e\u7ebf"} />
@@ -2391,23 +2454,23 @@ export default function App() {
             {mode==="tcconv"?(function(){
               var tc=TC_TYPES[tcType];
               var res=null;
-              if(tc){var v=parseFloat(tcVal);if(!isNaN(v)){if(tcDir==="t2mv"){res={mV:tc.toMV(v),T:v}}else{res={mV:v,T:tc.toT(v)}}}}
+              if(tc){var v=parseFloat(tcVal);if(!isNaN(v)){var isRTD=tcType==="Pt100"||tcType==="Pt1000";if(tcDir==="t2mv"){res=isRTD?{ohm:tc.toOhm(v),T:v}:{mV:tc.toMV(v),T:v}}else{res=isRTD?{ohm:v,T:tc.toT(v)}:{mV:v,T:tc.toT(v)}}}}
               return (<div style={{backgroundColor:C.white,borderRadius:C.radius,padding:16,boxShadow:C.shadow,border:"1px solid "+C.border}}>
                 <div style={{fontSize:14,fontWeight:700,color:C.cInst,marginBottom:4}}>{lang==="en"?"Thermocouple Conversion":"\u70ed\u7535\u5076\u6362\u7b97"}</div>
                 <div style={{fontSize:10,color:C.textL,marginBottom:8}}>ITS-90 {lang==="en"?"simplified polynomial":"\u7b80\u5316\u591a\u9879\u5f0f"}</div>
                 <div style={{display:"flex",gap:4,marginBottom:8}}>
-                  {["K","J","T"].map(function(t){return <Pill key={t} active={tcType===t} onClick={function(){setTcType(t)}}>{TC_TYPES[t].name}</Pill>})}
+                  {["K","J","T","Pt100","Pt1000"].map(function(t){return <Pill key={t} active={tcType===t} onClick={function(){setTcType(t)}}>{TC_TYPES[t].name}</Pill>})}
                 </div>
                 <div style={{display:"flex",gap:4,marginBottom:10}}>
-                  <Pill active={tcDir==="t2mv"} onClick={function(){setTcDir("t2mv")}}>{"T(\u00b0C)\u2192mV"}</Pill>
-                  <Pill active={tcDir==="mv2t"} onClick={function(){setTcDir("mv2t")}}>{"mV\u2192T(\u00b0C)"}</Pill>
+                  <Pill active={tcDir==="t2mv"} onClick={function(){setTcDir("t2mv")}}>{"T(\u00b0C)\u2192"+(tcType==="Pt100"||tcType==="Pt1000"?"\u03a9":"mV")}</Pill>
+                  <Pill active={tcDir==="mv2t"} onClick={function(){setTcDir("mv2t")}}>{(tcType==="Pt100"||tcType==="Pt1000"?"\u03a9":"mV")+"\u2192T(\u00b0C)"}</Pill>
                 </div>
                 <div style={{display:"flex",gap:6,alignItems:"center"}}>
-                  <span style={{color:C.textL,fontSize:11,minWidth:60,fontWeight:600}}>{tcDir==="t2mv"?"T(\u00b0C)":"mV"}</span>
+                  <span style={{color:C.textL,fontSize:11,minWidth:60,fontWeight:600}}>{tcDir==="t2mv"?"T(\u00b0C)":(tcType==="Pt100"||tcType==="Pt1000"?"\u03a9":"mV")}</span>
                   <input type="number" value={tcVal} onChange={function(e){setTcVal(e.target.value)}} style={{flex:1,padding:"10px 12px",backgroundColor:C.white,border:"1.5px solid "+C.border,borderRadius:C.radius,color:C.text,fontSize:14,fontFamily:"monospace",outline:"none"}} />
                 </div>
                 {res?(<div style={{marginTop:12,backgroundColor:C.bg,borderRadius:8,padding:12,fontFamily:"monospace",fontSize:13}}>
-                  <div style={{display:"flex",justifyContent:"space-between",marginBottom:4}}><span style={{color:C.textM}}>{tcDir==="t2mv"?"mV":"T"}</span><span style={{color:C.cInst,fontWeight:700}}>{tcDir==="t2mv"?res.mV.toFixed(3)+" mV":res.T.toFixed(1)+" \u00b0C"}</span></div>
+                  <div style={{display:"flex",justifyContent:"space-between",marginBottom:4}}><span style={{color:C.textM}}>{tcDir==="t2mv"?(tcType==="Pt100"||tcType==="Pt1000"?"\u03a9":"mV"):"T"}</span><span style={{color:C.cInst,fontWeight:700}}>{tcDir==="t2mv"?(res.ohm!==undefined?res.ohm.toFixed(2)+" \u03a9":res.mV.toFixed(3)+" mV"):res.T.toFixed(1)+" \u00b0C"}</span></div>
                   <div style={{display:"flex",justifyContent:"space-between"}}><span style={{color:C.textM}}>{lang==="en"?"Type":"\u7c7b\u578b"}</span><span style={{color:C.textM}}>{tc.name}</span></div>
                   <div style={{display:"flex",justifyContent:"space-between"}}><span style={{color:C.textM}}>{lang==="en"?"Range":"\u8303\u56f4"}</span><span style={{color:C.textM}}>{tc.range[0]+"\u2192"+tc.range[1]+"\u00b0C"}</span></div>
                 </div>):null}
@@ -2426,9 +2489,9 @@ export default function App() {
                   <div style={{display:"flex",gap:6,alignItems:"center"}}><span style={lS}>{"U (W/m\u00b2K)"}</span><input type="number" value={hxIn.u} onChange={function(e){setHxI("u",e.target.value)}} style={iS} /></div>
                   <div style={{display:"flex",gap:6,alignItems:"center"}}><span style={lS}>{"\u0394Tlm (\u00b0C)"}</span><input type="number" value={hxIn.lmtd} onChange={function(e){setHxI("lmtd",e.target.value)}} style={iS} /></div>
                 </div>
-                {hr&&!hr.err?(<div style={{marginTop:12}}><ResTable rows={[{n:lang==="en"?"Area":"\\u9762\\u79ef A",v:hr.A,u:"m\\u00b2"},{n:"Q",v:hr.Q,u:"kW"},{n:"U",v:hr.U,u:"W/m\\u00b2K"},{n:"\\u0394Tlm",v:hr.LMTD,u:"\\u00b0C"}]} lang={lang} title="Q=UA\\u0394T" /></div>):null}
+                {hr&&!hr.err?(<div style={{marginTop:12}}><ResTable rows={[{n:lang==="en"?"Area":"\u9762\u79ef A",v:hr.A,u:"m\u00b2"},{n:"Q",v:hr.Q,u:"kW"},{n:"U",v:hr.U,u:"W/m\u00b2K"},{n:"\u0394Tlm",v:hr.LMTD,u:"\u00b0C"}]} lang={lang} title={"Q=UA\u0394T"} /></div>):null}
                 <div style={{marginTop:10,fontSize:9,color:C.textL,lineHeight:1.7}}>
-                  <div style={{fontWeight:700,marginBottom:2}}>{lang==="en"?"Typical U values (W/m\\u00b2K)":"\u5e38\u7528U\u503c (W/m\\u00b2K)"}</div>
+                  <div style={{fontWeight:700,marginBottom:2}}>{lang==="en"?"Typical U values (W/m\u00b2K)":"\u5e38\u7528U\u503c (W/m\u00b2K)"}</div>
                   {HX_U.map(function(h,i){return <div key={i}>{lang==="en"?h.hot+"/"+h.cold:h.cn}: {h.lo+"-"+h.hi+", typ "+h.typ}</div>})}
                 </div>
               </div>);
@@ -2480,6 +2543,59 @@ export default function App() {
               </div>);
             })():null}
 
+            {mode==="humid"?(function(){
+              var iS={flex:1,padding:"10px 12px",backgroundColor:C.white,border:"1.5px solid "+C.border,borderRadius:C.radius,color:C.text,fontSize:14,fontFamily:"monospace",outline:"none",boxSizing:"border-box"};
+              var lS={color:C.textL,fontSize:11,minWidth:80,fontWeight:600};
+              var hr=calcHumidity(parseFloat(humIn.t),parseFloat(humIn.rh),parseFloat(humIn.patm));
+              return (<div style={{backgroundColor:C.white,borderRadius:C.radius,padding:16,boxShadow:C.shadow,border:"1px solid "+C.border}}>
+                <div style={{fontSize:14,fontWeight:700,color:C.cTool,marginBottom:4}}>{lang==="en"?"Humidity & Dew Point":"\u6e7f\u5ea6\u4e0e\u9732\u70b9"}</div>
+                <div style={{fontSize:10,color:C.textL,marginBottom:10}}>Magnus formula</div>
+                <div style={{display:"flex",flexDirection:"column",gap:8}}>
+                  <div style={{display:"flex",gap:6,alignItems:"center"}}><span style={lS}>{"Tdb (\u00b0C)"}</span><input type="number" value={humIn.t} onChange={function(e){setHumI("t",e.target.value)}} style={iS} /></div>
+                  <div style={{display:"flex",gap:6,alignItems:"center"}}><span style={lS}>RH (%)</span><input type="number" value={humIn.rh} onChange={function(e){setHumI("rh",e.target.value)}} style={iS} /></div>
+                  <div style={{display:"flex",gap:6,alignItems:"center"}}><span style={lS}>Patm (kPa)</span><input type="number" value={humIn.patm} onChange={function(e){setHumI("patm",e.target.value)}} style={iS} /></div>
+                </div>
+                {hr&&!isNaN(hr.Tdew)?(<div style={{marginTop:12}}><ResTable rows={[
+                  {n:lang==="en"?"Dew point":"\u9732\u70b9",v:hr.Tdew,u:"\u00b0C"},
+                  {n:lang==="en"?"Wet bulb":"\u6e7f\u7403",v:hr.Twet,u:"\u00b0C"},
+                  {n:lang==="en"?"Abs. humidity":"\u542b\u6e7f\u91cf",v:hr.W,u:"g/kg"},
+                  {n:"Psat",v:hr.Psat,u:"kPa"},
+                  {n:"Pw",v:hr.Pw,u:"kPa"},
+                  {n:lang==="en"?"Water ppm":"\u6c34\u5206ppm",v:hr.ppm,u:"ppmv"},
+                ]} lang={lang} title={lang==="en"?"Humidity":"\u6e7f\u5ea6"} /></div>):null}
+              </div>);
+            })():null}
+
+            {mode==="b3610"?(function(){
+              return (<div style={{backgroundColor:C.white,borderRadius:C.radius,padding:16,boxShadow:C.shadow,border:"1px solid "+C.border}}>
+                <div style={{fontSize:14,fontWeight:700,color:C.cTool,marginBottom:4}}>ASME B36.10M</div>
+                <div style={{fontSize:10,color:C.textL,marginBottom:8}}>{lang==="en"?"Carbon & Alloy Steel Pipe":"\u78b3\u94a2/\u5408\u91d1\u94a2\u7ba1"}</div>
+                <div style={{overflowX:"auto"}}>
+                  <table style={{width:"100%",borderCollapse:"collapse",fontSize:10}}>
+                    <thead><tr style={{backgroundColor:C.bg}}>
+                      <th style={{padding:"4px 6px",textAlign:"left",color:C.textM}}>NPS</th>
+                      <th style={{padding:"4px 6px",textAlign:"center",color:C.textM}}>DN</th>
+                      <th style={{padding:"4px 6px",textAlign:"center",color:C.textM}}>OD</th>
+                      <th style={{padding:"4px 6px",textAlign:"center",color:C.textM}}>STD</th>
+                      <th style={{padding:"4px 6px",textAlign:"center",color:C.textM}}>XS</th>
+                      <th style={{padding:"4px 6px",textAlign:"center",color:C.textM}}>160</th>
+                      <th style={{padding:"4px 6px",textAlign:"center",color:C.textM}}>XXS</th>
+                    </tr></thead>
+                    <tbody>{B3610.map(function(r,i){return (<tr key={i} style={{borderBottom:"1px solid "+C.border}}>
+                      <td style={{padding:"3px 6px",fontWeight:600,color:C.text}}>{r.nps}</td>
+                      <td style={{padding:"3px 6px",textAlign:"center",color:C.textM}}>{r.dn}</td>
+                      <td style={{padding:"3px 6px",textAlign:"center",color:C.pri,fontFamily:"monospace"}}>{r.od}</td>
+                      <td style={{padding:"3px 6px",textAlign:"center",fontFamily:"monospace"}}>{r.sch.STD||"-"}</td>
+                      <td style={{padding:"3px 6px",textAlign:"center",fontFamily:"monospace"}}>{r.sch.XS||"-"}</td>
+                      <td style={{padding:"3px 6px",textAlign:"center",fontFamily:"monospace"}}>{r.sch["160"]||"-"}</td>
+                      <td style={{padding:"3px 6px",textAlign:"center",fontFamily:"monospace"}}>{r.sch.XXS||"-"}</td>
+                    </tr>)})}</tbody>
+                  </table>
+                </div>
+                <div style={{marginTop:4,fontSize:8,color:C.textL}}>{lang==="en"?"Wall thickness (mm)":"\u58c1\u539a(mm)"}</div>
+              </div>);
+            })():null}
+
           </div>
         </div>
 
@@ -2490,7 +2606,7 @@ export default function App() {
             <div style={{fontSize:11,color:C.text,lineHeight:1.9}}>
               <div style={{fontWeight:700,color:C.cProp,marginTop:6,fontSize:12}}>{lang==="en"?"PROPERTIES - 36 Components":"\u7269\u6027\u8ba1\u7b97 - 36\u79cd\u7ec4\u5206"}</div>
               <div style={{color:C.textM}}>{lang==="en"?"Permanent gases: H2, N2, O2, Ar, He, Ne | Syngas/IGCC: CO, CO2, H2O, H2S, COS | Hydrocarbons C1-C4, Benzene, Toluene, p-Xylene, Cyclohexane | Polar: MeOH, EtOH, Acetone, HCHO, NH3, SO2, HCl, Cl2 | Refrigerants: R22, R32, R134a, R125, R152a, R1234yf":"\u6c38\u4e45\u6c14\u4f53: H2/N2/O2/Ar/He/Ne | \u5408\u6210\u6c14: CO/CO2/H2O/H2S/COS | \u70c3C1-C4/\u82ef/\u7532\u82ef/\u4e8c\u7532\u82ef/\u73af\u5df1\u70f7 | \u6781\u6027: MeOH/EtOH/\u4e19\u916e/NH3/SO2/HCl | \u5236\u51b7\u5242: R22/R32/R134a/R125/R152a/R1234yf"}</div>
-              <div style={{color:C.textL,fontSize:9,marginTop:2}}>{"EOS: Peng-Robinson(1976), SRK(1972), 60+ kij | "}{lang==="en"?"Data: DIPPR, Perry's Handbook":"\u6570\u636e: DIPPR, Perry's Handbook"}</div>
+              <div style={{color:C.textL,fontSize:9,marginTop:2}}>{"EOS: Peng-Robinson(1976), SRK(1972), 60+ kij | "}{lang==="en"?"Data: DIPPR, Perry Handbook":"\u6570\u636e: DIPPR, Perry Handbook"}</div>
               <div style={{color:C.textL,fontSize:9}}>{"Z, Vm, \u03c1(DIPPR-105), H, S, Cp, Cv, u, Psat, CAS, Tb, Vc"}</div>
               <div style={{fontWeight:700,color:C.cProp,marginTop:8,fontSize:12}}>{"IAPWS-IF97 "}{lang==="en"?"Steam Tables":"\u6c34\u84b8\u6c14\u56fd\u9645\u6807\u51c6"}</div>
               <div style={{color:C.textM}}>{lang==="en"?"5 input modes: P-T, P-VF, T-VF, P-H, P-S | Regions 1,2,4 | Verified against official IAPWS test cases":"5\u79cd\u8f93\u5165: P-T/P-VF/T-VF/P-H(\u53cd\u7b97\u6e29\u5ea6)/P-S(\u53cd\u7b97\u6e29\u5ea6) | \u533a\u57df1,2,4 | \u7ecfIAPWS\u5b98\u65b9\u6d4b\u8bd5\u7528\u4f8b\u9a8c\u8bc1"}</div>
@@ -2502,7 +2618,7 @@ export default function App() {
               <div style={{color:C.textM}}>{lang==="en"?"Unit converter (10 categories) | Pipe wall (ASME B31.3 + GB/T 20801, 10 materials) | Safety valve (API 520/526) | Orifice (ISO 5167-2 R-H/G) | Valve Cv (IEC 60534) | Heating value HHV/LHV/Wobbe (ISO 6976) | Vessel volume | Std gas flow (Nm3/SCFM/MMSCFD) | MW calculator":"\u5355\u4f4d\u6362\u7b97(10\u7c7b) | \u7ba1\u9053\u58c1\u539a(ASME B31.3+GB/T 20801, 10\u79cd\u6750\u6599) | \u5b89\u5168\u9600(API 520/526) | \u5b54\u677f(ISO 5167-2) | \u63a7\u5236\u9600Cv(IEC 60534) | \u70ed\u503c(ISO 6976) | \u5bb9\u5668\u6db2\u4f4d | \u6807\u51c6\u6d41\u91cf | \u5206\u5b50\u91cf"}</div>
               <div style={{marginTop:10,padding:8,backgroundColor:C.bg,borderRadius:6}}>
                 <div style={{fontSize:10,fontWeight:700,color:C.textM,marginBottom:2}}>{lang==="en"?"Standards & Data Sources":"\u6807\u51c6\u4e0e\u6570\u636e\u6765\u6e90"}</div>
-                <div style={{fontSize:9,color:C.textL,lineHeight:1.7}}>IAPWS-IF97 | Peng-Robinson (1976) | SRK (1972) | DIPPR 105 | ASME B31.3 | GB/T 20801 | API 520/526 | ISO 5167-2 (Reader-Harris/Gallagher) | IEC 60534 | ISO 6976 | Perry's Handbook</div>
+                <div style={{fontSize:9,color:C.textL,lineHeight:1.7}}>IAPWS-IF97 | Peng-Robinson (1976) | SRK (1972) | DIPPR 105 | ASME B31.3 | GB/T 20801 | API 520/526 | ISO 5167-2 (Reader-Harris/Gallagher) | IEC 60534 | ISO 6976 | Perry Handbook</div>
               </div>
             </div>
             <button onClick={function(){setShowInfo(false)}} style={{width:"100%",marginTop:16,padding:"10px",background:C.pri,border:"none",borderRadius:8,color:"#fff",fontSize:14,fontWeight:600,cursor:"pointer"}}>{lang==="en"?"Close":"\u5173\u95ed"}</button>
