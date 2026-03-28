@@ -3098,7 +3098,7 @@ export default function App() {
               </div>
 
               <div style={{marginTop:10,padding:8,backgroundColor:C.bg,borderRadius:6}}>
-                <div style={{fontSize:10,fontWeight:700,color:C.textM,marginBottom:3}}>{lang==="en"?"v5.1 Changes":"\u672c\u7248\u4e3b\u8981\u4fee\u590d"}</div>
+                <div style={{fontSize:10,fontWeight:700,color:C.textM,marginBottom:3}}>{lang==="en"?"v0.1 Changes":"\u672c\u7248\u4e3b\u8981\u4fee\u590d"}</div>
                 <div style={{fontSize:9,color:C.textL,lineHeight:1.8}}>
                   {"• "}{lang==="en"?"VLE: added PH Flash + PS Flash (PR EOS, multicomponent)":"VLE\u65b0\u589e PH Flash + PS Flash (\u591a\u7ec4\u5206 PR EOS)"}<br/>
                   {"• "}{lang==="en"?"VLE TP Flash: now reports mixture H and S":"TP Flash \u65b0\u589e\u8f93\u51fa\u6df7\u5408\u7269 H \u548c S"}<br/>
@@ -3135,7 +3135,7 @@ export default function App() {
         {/* Footer */}
         <div style={{marginTop:24,padding:"16px 0",borderTop:"1px solid "+C.border,textAlign:"center"}}>
           <div style={{color:C.textL,fontSize:10,marginBottom:4}}>
-            ChemCalc v5.1 | 36 Components | PR/SRK/IAPWS-IF97 | ASME B31.3 | API 520 | ISO 5167
+            ChemCalc v0.1 | 36 Components | PR/SRK/IAPWS-IF97 | ASME B31.3 | API 520 | ISO 5167
           </div>
           <div style={{color:C.textL,fontSize:9,marginBottom:4,lineHeight:1.5}}>
             {lang==="en"
