@@ -3125,7 +3125,7 @@ export default function App() {
                 </div>
               </div>
               <div style={{marginTop:6,fontSize:9,color:C.textL,textAlign:"center"}}>
-                {"\u6b22\u8fce\u53cd\u9988 / Feedback: chemthermo@outlook.com"}
+                {"\u6b22\u8fce\u53cd\u9988 / Feedback: chemcalc@outlook.com"}
               </div>
             </div>
             <button onClick={function(){setShowInfo(false)}} style={{width:"100%",marginTop:16,padding:"10px",background:C.pri,border:"none",borderRadius:8,color:"#fff",fontSize:14,fontWeight:600,cursor:"pointer"}}>{lang==="en"?"Close":"\u5173\u95ed"}</button>
@@ -3147,7 +3147,7 @@ export default function App() {
           </div>
           <div style={{color:C.textL,fontSize:9}}>
             {"\u6b22\u8fce\u63d0\u51fa\u5efa\u8bae\u548c\u53cd\u9988Bug | Feedback & bug reports welcome: "}
-            <span style={{color:C.pri}}>chemthermo@outlook.com</span>
+            <span style={{color:C.pri}}>chemcalc@outlook.com</span>
           </div>
         </div>
       </div>
