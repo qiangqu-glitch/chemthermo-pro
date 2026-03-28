@@ -1,6 +1,6 @@
 // ChemCalc Service Worker - Network First strategy
 // Fetches latest from network first; falls back to cache when offline
-var CACHE_NAME = "chemcalc-v5.1";
+var CACHE_NAME = "chemcalc-v0.1";
 var STATIC = ["/", "/index.html"];
 
 self.addEventListener("install", function(e) {
